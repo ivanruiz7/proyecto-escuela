@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saint george</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/escuela.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="holder">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="logo">
+                <h1>Saint George School</h1>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="holder">
+            
+            <li><a class="{{#if ishome}} activo {{/if}} " href="/">Inicio</a></li>
+            <li><a class="{{#if isdocentes}} activo {{/if}} " href="/docentes">Docentes</a></li>
+            <li><a class="{{#if isinstalaciones}} activo {{/if}} " href="/instalaciones">Instalaciones</a></li>
+            <li><a class="{{#if isgaleria}} activo {{/if}} " href="/galeria">Galeria</a></li>
+            <li><a class="{{#if isnovedades}} activo {{/if}} " href="/novedades">novedades</a></li>
+            <li><a class="{{#if iscontacto}} activo {{/if}} " href="/contacto">Contacto</a></li>
+
+        </ul>
+    </nav>
+    <main class="holder">
+       
+
+   
+    {{{body}}}
+    </main>
+
+
+
+   <footer>
+        <p>diseñado por Ivan Ruiz - &copy;2022 </p>
+    </footer>
+
+</body>
+
+</html>
