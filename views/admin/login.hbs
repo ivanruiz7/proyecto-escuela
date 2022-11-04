@@ -1,0 +1,27 @@
+
+
+<form action="/admin/login" method="post">
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">usuario</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmail3"
+      placeholder="usuario" name="usuario">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3"
+      placeholder="password" name="password">
+    </div>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+
+{{#if error}}
+<div style="text-align:center;" class="alert alert-dark" role="alert">
+ <a class="alert-link">usuario o contraseña incorrecto.</a>
+</div>
+{{/if}}

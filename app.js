@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('dotenv').config();
+var session = require ('express-session');
 
 var indexRouter = require('./routes/index');
 
@@ -13,6 +14,8 @@ var instalacionesrouter = require('./routes/instalaciones');
 var galeriarouter = require('./routes/galeria');
 var novedadesrouter = require('./routes/novedades');
 var contactorouter = require('./routes/contacto');
+var loginrouter = require('./routes/admin/login');
+var adminRouter = require('./routes/admin/novedades');
 
 var app = express();
 
@@ -26,6 +29,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session ({
+  secret: 'mauqpnht213trq',
+  resave: false , 
+  saveUninitialized:true
+}))
+secured = async (req,res,next) => {
+  try{
+    console.log(req.session.id_usuario);
+    if (req.session.id_usuario) {
+      next();
+    } else {res.redirect('/admin/login');
+  }
+} catch (error) {
+  console.log (error);
+}
+}
+
+
 app.use('/', indexRouter);
 
 app.use('/docentes', docentesrouter);
@@ -33,6 +54,8 @@ app.use('/instalaciones', instalacionesrouter);
 app.use('/galeria', galeriarouter );
 app.use('/novedades', novedadesrouter);
 app.use('/contacto', contactorouter);
+app.use('/admin/login',loginrouter);
+app.use('/admin/novedades',secured,adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

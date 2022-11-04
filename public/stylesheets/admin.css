@@ -1,0 +1,29 @@
+header {
+    background-color: #9b0533;
+    padding: 16px, 0;
+    text-align: center;
+}
+header h1 {
+    bottom: -20px;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    background-color: #969595;
+}
+form {
+    padding: 100px;
+    max-width: 650px;
+    margin: auto;
+    position: relative;
+    
+    
+ 
+  }
+label {
+    margin-right: 0px;
+  }
+h2{
+    padding: 50px;
+}
