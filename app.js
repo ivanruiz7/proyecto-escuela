@@ -12,10 +12,11 @@ var indexRouter = require('./routes/index');
 var docentesrouter = require('./routes/docentes');
 var instalacionesrouter = require('./routes/instalaciones');
 var galeriarouter = require('./routes/galeria');
-var novedadesrouter = require('./routes/novedades');
+var efemeridesrouter = require('./routes/efemerides');
 var contactorouter = require('./routes/contacto');
 var loginrouter = require('./routes/admin/login');
 var adminRouter = require('./routes/admin/novedades');
+var newuserrouter = require('./routes/admin/newuser');
 
 var app = express();
 
@@ -52,10 +53,11 @@ app.use('/', indexRouter);
 app.use('/docentes', docentesrouter);
 app.use('/instalaciones', instalacionesrouter);
 app.use('/galeria', galeriarouter );
-app.use('/novedades', novedadesrouter);
+app.use('/efemerides', efemeridesrouter);
 app.use('/contacto', contactorouter);
 app.use('/admin/login',loginrouter);
 app.use('/admin/novedades',secured,adminRouter);
+app.use('/admin/newuser',newuserrouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
