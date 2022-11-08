@@ -5,12 +5,20 @@ var novedadesModels = require ('../../models/novedadesModels');
 
 router.get('/', async function(req, res, next) {
 
-  var novedades = await novedadesModels.getNovedades();
+  //var novedades = await novedadesModels.getNovedades();
+  var novedades
+  if (req.query.q === undefined) {
+    novedades = await novedadesModels.getNovedades();
+  } else {
+    novedades = await novedadesModels.buscarnovedades (req.query.q);
+  }
 
   res.render('admin/novedades',{
     layout:'admin/layout',
     usuario: req.session.nombre,
-    novedades
+    novedades,
+    is_search: req.query.q !== undefined,
+    q: req.query.q
   });
 });
 
@@ -58,7 +66,8 @@ router.get('/modificar/:id', async (req, res, next) => {
  
   res.render('admin/modificar', {
     layout:'admin/layout' , 
-    novedad
+    novedad ,
+    
   })
   });
 

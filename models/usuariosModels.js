@@ -12,4 +12,16 @@ async function getUserbyUsernameAndPassword(user, password) {
     } 
 }
 
-module.exports = {getUserbyUsernameAndPassword}
+    async function insertusuario(obj){
+    try {
+        var query = 'insert into usuarios set ? ';
+        var rows = await pool.query (query,[obj])
+        return rows;
+    } catch (error) {
+        console.log(error) ;
+        throw error ; 
+    }
+}
+
+
+    module.exports = {getUserbyUsernameAndPassword,insertusuario}

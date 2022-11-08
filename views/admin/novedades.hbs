@@ -6,12 +6,24 @@
 
 
 </div>
+  
 
-<div class="row" style="margin: top -20px;;">
-  <h2>lista de novedades </h2>
+<div class="row">
+  <div  style="text-align:center; margin: -40px;">
+  <h2>lista de novedades </h2> 
+  </div>
+ 
+  <div class="col-8,text-right" style="margin: -10px;">
+    <form class="d-flex" action="/admin/novedades" method="get">
+      <input class="form-control me-2" type="search" placeholder="buscar" aria-label="search" name="q" {{#if q}} value=" {{q}} " {{/if}} >
+      <button class="" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> 
+      
+    </form>
+    <div> 
+ <p class="text-end"><a href="/admin/novedades/agregar"><span style="padding:15px;" class="badge text-bg-success">nuevo</span></a></p>
+  </div>
 
-  <p class="text-end"><a href="/admin/novedades/agregar"><span style="padding: 15px;" class="badge text-bg-success">nuevo</span></a></p>
-
+  </div>
 </div>
 
 <table class="table table">
@@ -32,3 +44,9 @@
     {{/each}}
   </tbody>
 </table>
+
+    {{#if is_search}}
+    {{#unless novedades.lenght}}
+        no se encuentra resultados para "<b>{{q}}</b>"
+    {{/unless}}
+    {{/if}}
